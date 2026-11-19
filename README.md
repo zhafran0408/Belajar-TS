@@ -1,75 +1,28 @@
-# React + TypeScript + Vite
+# 📖 The Quiet Space
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> *"Breathe. Reflect. Grow."* — A minimalist, editorial-style quote application.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 Tentang Project
+**The Quiet Space** adalah aplikasi web yang menampilkan kumpulan kata-kata mutiara (quotes) dengan desain antarmuka ala majalah editorial. Project ini dibangun untuk mendalami implementasi *TypeScript* yang aman (*type-safe*) di dalam ekosistem *React*.
 
-## React Compiler
+## ✨ Fitur Utama
+- 🌗 **Light & Dark Mode**: Transisi tema yang mulus dan nyaman di mata.
+- 🎲 **Mode Filter & Sort**: Mengurutkan quote berdasarkan teks (Z-A), penulis (A-Z), atau memfilter quote dari penulis spesifik.
+- 💾 **Local Database Simulation**: Menggunakan `json-server` sebagai backend lokal (simulasi REST API).
+- ⏳ **Loading & Error States**: Penanganan *state* saat data sedang dimuat atau koneksi terputus.
+- 🛡️ **Strict Typing**: Menggunakan `Enum`, `Interface`, dan `Type Alias` untuk validasi data dari API.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Cara Menjalankan di Komputer Lokal
 
-## Expanding the ESLint configuration
+Karena project ini menggunakan database lokal, kamu perlu menjalankan **dua terminal** secara bersamaan.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+**1. Jalankan Database (Terminal 1)**
+Pastikan kamu sudah menginstall `json-server` secara global.
+```bash
+npm install -g json-server@0.17.4
+json-server --watch db.json --port 3000
